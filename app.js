@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
-const record = require('./models/record')
 
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -27,6 +26,17 @@ app.get('/', (req, res) => {
   Record.find()
     .lean()
     .then(records => res.render('index', { records }))
+    .catch(error => console.log(error))
+})
+
+app.get('/records/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/records', (req, res) => {
+  const { name, category, date, amount } = req.body
+  return Record.create({ name, category, date, amount })
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
