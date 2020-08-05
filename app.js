@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 const mongoose = require('mongoose')
+const record = require('./models/record')
 
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -39,6 +40,31 @@ app.post('/records', (req, res) => {
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
+
+app.get('/records/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .lean()
+    .then((record) => res.render('edit', { record }))
+    .catch(error => console.log(error))
+})
+
+app.post('/records/:id/edit', (req, res) => {
+  const id = req.params.id
+  const { name, category, date, amount } = req.body
+  return Record.findById(id)
+    .then(record => {
+      record.name = name
+      record.category = category
+      record.date = date
+      record.amount = amount
+      return record.save()
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+
 
 app.listen(port, (req, res) => {
   console.log(`Express is listening on http://localhost:${port}`)

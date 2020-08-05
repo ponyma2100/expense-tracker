@@ -1,0 +1,28 @@
+<form action="/records/{{record._id}}/edit" method="POST" style="margin: 20px 20px;">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label>名稱*</label>
+      <input type="text" class="form-control" placeholder="name" name="name" value="{{record.name}}" required>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>日期*</label>
+      <input type="text" class="form-control" placeholder="date" name="date" value="{{record.date}}" required>
+    </div>
+    <div class="form-group">
+      <label>類別*</label>
+      <select class="custom-select" name="category" value="{{record.category}}" required>
+        <option value="家居物業" selected>家居物業</option>
+        <option value="交通出行">交通出行</option>
+        <option value="休閒娛樂">休閒娛樂</option>
+        <option value="餐飲食品">餐飲食品</option>
+        <option value="其他">其他</option>
+      </select>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>金額*</label>
+      <input type="text" class="form-control" placeholder="amount" name="amount" value="{{record.amount}}" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-info">Save</button>
+  <a href="/" class="btn btn-info">Back</a>
+</form>
