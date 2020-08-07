@@ -5,20 +5,8 @@ const methodOverride = require('method-override')
 const Handlebars = require('handlebars')
 const app = express()
 const port = 3000
-const mongoose = require('mongoose')
 const routes = require('./routes')
-
-mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-db.once('open', () => {
-  console.log('mongodb conneted!')
-})
+require('./config/mongoose')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
