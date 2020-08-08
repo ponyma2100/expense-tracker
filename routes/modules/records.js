@@ -31,16 +31,23 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const id = req.params.id
   const { name, category, date, amount } = req.body
-  return Record.findById(id)
-    .then(record => {
-      record.name = name
-      record.category = category
-      record.date = date
-      record.amount = amount
-      return record.save()
-    })
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+  const reg = /^[0-9]+.?[0-9]*$/
+  const alert = `請輸入數字!`
+
+  if (!reg.test(amount)) {
+    res.render(('new'), { alert })
+  } else {
+    return Record.findById(id)
+      .then(record => {
+        record.name = name
+        record.category = category
+        record.date = date
+        record.amount = amount
+        return record.save()
+      })
+      .then(() => res.redirect('/'))
+      .catch(error => console.log(error))
+  }
 })
 
 router.delete('/:id', (req, res) => {
