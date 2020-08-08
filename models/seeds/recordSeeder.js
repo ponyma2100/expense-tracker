@@ -32,6 +32,12 @@ db.once('open', () => {
       category: '家居物業',
       date: '2020/8/5',
       amount: 25000
+    },
+    {
+      name: '買股票',
+      category: '其他',
+      date: '2020/8/7',
+      amount: 50000
     }
   )
 })

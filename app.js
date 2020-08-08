@@ -32,8 +32,8 @@ Handlebars.registerHelper('setIcon', function (category) {
     return '<i class="fa fa-gamepad"></i>'
   } else if (category === '餐飲食品') {
     return '<i class="fa fa-coffee"></i>'
-  } else {
-    return '<i class="fa fa-surprise"></i>'
+  } else if (category === '其他') {
+    return '<i class="fa fa-rocket"></i>'
   }
 })
 
