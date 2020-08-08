@@ -6,9 +6,9 @@
     </div>
     <div class="col-md-4 mb-3">
       <label>日期*</label>
-      <input type="text" class="form-control" placeholder="date" name="date" required>
+      <input type="date" class="form-control" placeholder="date" name="date" required>
     </div>
-    <div class="form-group">
+    <div class="form-group" required>
       <label>類別*</label>
       <select class="custom-select" name="category" required>
         <option value="all" href="/">類別</option>
@@ -22,6 +22,7 @@
     <div class="col-md-4 mb-3">
       <label>金額*</label>
       <input type="text" class="form-control" placeholder="amount" name="amount" required>
+      <p style="color: red;">{{{ alert }}}</p>
     </div>
   </div>
   <button type="submit" class="btn btn-info">新增支出</button>

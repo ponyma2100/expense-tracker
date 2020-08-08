@@ -8,9 +8,16 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   const { name, category, date, amount } = req.body
-  return Record.create({ name, category, date, amount })
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+  const reg = /^[0-9]+.?[0-9]*$/
+  const alert = `請輸入數字!`
+
+  if (!reg.test(amount)) {
+    res.render(('new'), { alert })
+  } else {
+    return Record.create({ name, category, date, amount })
+      .then(() => res.redirect('/'))
+      .catch(error => console.log(error))
+  }
 })
 
 router.get('/:id/edit', (req, res) => {

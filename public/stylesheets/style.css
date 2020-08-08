@@ -1,5 +1,13 @@
+.navbar {
+  overflow: hidden;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 1;
+}
+
 .list-group-item {
-  background-color: #204051 !important;
+  background-color: #30475e !important;
 }
 .list-group {
   margin-bottom: 20px;
@@ -31,6 +39,10 @@ h5, h6 {
 
 .fa {
   margin-right: 5px;
+}
+
+.form-row {
+  margin-top: 80px;
 }
 
 @media screen and (max-width: 992px) {
