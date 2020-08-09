@@ -6,6 +6,10 @@
   z-index: 1;
 }
 
+.function {
+  margin-top: 80px;
+}
+
 .list-group-item {
   background-color: #30475e !important;
 }

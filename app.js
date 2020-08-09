@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const Handlebars = require('handlebars')
 const app = express()
-const port = 3000
+const PORT = process.env.PORT || 3000
 const routes = require('./routes')
 require('./config/mongoose')
 
@@ -42,6 +42,6 @@ Handlebars.registerHelper('getTotal', function (amount) {
   return totalAmount
 })
 
-app.listen(port, (req, res) => {
-  console.log(`Express is listening on http://localhost:${port}`)
+app.listen(PORT, (req, res) => {
+  console.log(`Express is listening on http://localhost:${PORT}`)
 })
