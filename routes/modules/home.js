@@ -4,7 +4,8 @@ const router = express.Router()
 const Record = require('../../models/record')
 // 定義首頁路由
 router.get('/', (req, res) => {
-  Record.find()
+  const userId = req.user._id
+  Record.find({ userId })
     .lean()
     .then(records => {
       const totalAmount = records.map(record => record.amount).reduce((acc, arr) => { return acc + arr }, 0)
