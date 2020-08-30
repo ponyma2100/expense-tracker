@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const moment = require('moment')
 
 
 router.get('/', (req, res) => {
@@ -58,7 +57,7 @@ router.get('/', (req, res) => {
             // console.log(records)
             totalAmount = records.map(record => record.amount).reduce((acc, arr) => { return acc + arr }, 0)
 
-            res.render('index', { records, category, categoryList, totalAmount, selectMonth, monthList })
+            res.render('index', { records, category, categoryList, totalAmount, selectMonth, monthList, userId })
 
           }
           // console.log(selectMonth)
