@@ -71,6 +71,6 @@ Handlebars.registerHelper('getTotal', function (amount) {
   return totalAmount
 })
 
-app.listen(PORT, (req, res) => {
-  console.log(`Express is listening on http://localhost:${PORT}`)
+app.listen(process.env.PORT || 3000, (req, res) => {
+  console.log(`Express is listening on http://localhost:${process.env.PORT || 3000}`)
 })
