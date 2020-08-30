@@ -72,24 +72,3 @@ router.get('/', (req, res) => {
 
 
 module.exports = router
-// Record.find({ date, userId })
-//   .lean()
-//   .then(records => {
-//     console.log(date)
-//     totalAmount = records.map(record => record.amount).reduce((acc, arr) => { return acc + arr }, 0)
-//     res.render('index', { records, category, date, totalAmount, selectMonth })
-//   })
-//   .catch(error => console.log(error))
-
-
-// if (category === 'all') {
-//   res.redirect('/')
-// } else {
-//   return Record.find({ category, userId })
-//     .lean()
-//     .then((records) => {
-//       totalAmount = records.map(record => record.amount).reduce((acc, arr) => { return acc + arr }, 0)
-//       res.render('index', { records, category, totalAmount, selectMonth })
-//     })
-//     .catch(error => console.log(error))
-// }
