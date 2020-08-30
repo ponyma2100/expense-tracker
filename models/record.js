@@ -18,6 +18,9 @@ const recordSchema = new Schema({
   totalAmount: {
     type: Number
   },
+  shopName: {
+    type: String
+  },
   userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
