@@ -1,6 +1,11 @@
 # expense-tracker
 [HEROKU](https://peaceful-spire-26752.herokuapp.com/ "title text!")
 
+Test account:
+
+Email	: root@example.com
+Password : 12345678
+
 ![示意圖](https://i.imgur.com/tbmVug6.png)
 
 使用Node.js與Express打造的收支記帳本，提供使用者建立自己的記帳網頁。
