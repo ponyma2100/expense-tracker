@@ -1,10 +1,14 @@
 # expense-tracker
 [HEROKU](https://peaceful-spire-26752.herokuapp.com/ "title text!")
 
-Test account:
+## Test account:
 
 Email	: root@example.com
 Password : 12345678
+
+## 相關環境變數
+[env.example](https://github.com/ponyma2100/expense-tracker/blob/master/.env.example "title text!")
+
 
 ![示意圖](https://i.imgur.com/tbmVug6.png)
 
@@ -78,3 +82,5 @@ Express is listening on http://localhost:3000
 -Body-parser: v1.19.0
 
 -mongoose: v5.9.25
+
+
