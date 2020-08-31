@@ -21,10 +21,12 @@ h4 {
   color: #f4e04d;
 }
 
-h5, h6 {
+h6 {
   color: #f3ecc2;
 }
-
+h5 {
+  color: #dee2e6;
+}
 .total-amount {
   color: #e8505b;
 }

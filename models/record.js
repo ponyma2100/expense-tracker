@@ -18,7 +18,7 @@ const recordSchema = new Schema({
   totalAmount: {
     type: Number
   },
-  shopName: {
+  shopname: {
     type: String
   },
   userId: {

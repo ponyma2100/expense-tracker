@@ -11,7 +11,14 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/users/login'
-}))
+}), (req, res) => {
+  const { email, password } = req.body
+  console.log(email)
+  if (!email || !password) {
+    req.flash('warning_msg', '請輸入帳號或密碼!')
+  }
+}
+)
 
 
 router.get('/register', (req, res) => {
@@ -21,7 +28,6 @@ router.get('/register', (req, res) => {
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
   const errors = []
-  console.log(req.body, confirmPassword)
   if (!name || !email || !password || !confirmPassword) {
     errors.push({ message: '請填寫必填欄位' })
   }
@@ -40,9 +46,9 @@ router.post('/register', (req, res) => {
 
   User.findOne({ email }).then(user => {
     if (user) {
-      console.log('User already exist')
-      errors.push({ message: '這個 Email 已經註冊過' })
-      res.render('register', {
+      errors.push({ message: '這個 Email 已經註冊過了。' })
+      return res.render('register', {
+        errors,
         name,
         email,
         password,

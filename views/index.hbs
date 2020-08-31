@@ -1,13 +1,13 @@
 <header>
-  <div class="banner"></div>
+  <div class="msgbox mt-5">
+    {{>message}}
+  </div>
 </header>
 
 <!-- filter -->
+<div class="function d-flex justify-content-start mt-3" style="display: flex; margin-bottom: 20px;">
 
-
-
-<div class="function" style="display: flex; margin-bottom: 20px;">
-  <form action="/filter" method="get">
+  <form action="/filter" class="d-flex justify-content-around mt-3" method="get" style="width: 270px;">
     <div class="filter-months">
       <input type="month" id="month" name="months" min="2020-01" value="{{this.selectMonth}}">
     </div>
@@ -35,6 +35,7 @@
       <div class="col-auto mr-auto">
         <h4 style="display: inline; vertical-align: middle;">
           {{#setIcon this.category}} {{/setIcon}}</i>{{ this.name }}
+          <h5>{{ this.shopname }}</h5>
         </h4>
         <h6>{{this.date}}</h6>
       </div>

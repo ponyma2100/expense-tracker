@@ -8,14 +8,22 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   const userId = req.user._id
-  const { name, category, date, amount } = req.body
+  const { name, category, date, amount, shopname } = req.body
   const reg = /^[0-9]+.?[0-9]*$/
   const alert = `請輸入數字!`
-
   if (!reg.test(amount)) {
-    res.render(('new'), { alert })
+    return res.render('new', {
+      errors,
+      alert,
+      name,
+      category,
+      date,
+      amount,
+      shopname
+    })
+
   } else {
-    return Record.create({ name, category, date, amount, userId })
+    return Record.create({ name, category, date, amount, shopname, userId })
       .then(() => res.redirect('/'))
       .catch(error => console.log(error))
   }
@@ -33,12 +41,11 @@ router.get('/:id/edit', (req, res) => {
 router.put('/:id', (req, res) => {
   const userId = req.user._id
   const _id = req.params.id
-  const { name, category, date, amount } = req.body
+  const { name, category, date, amount, shopname } = req.body
   const reg = /^[0-9]+.?[0-9]*$/
   const alert = `請輸入數字!`
-
   if (!reg.test(amount)) {
-    res.render(('new'), { alert })
+    return res.render('edit', { alert, name, category, date, amount, shopname, userId })
   } else {
     return Record.findOne({ _id, userId })
       .then(record => {
@@ -46,6 +53,7 @@ router.put('/:id', (req, res) => {
         record.category = category
         record.date = date
         record.amount = amount
+        record.shopname = shopname
         return record.save()
       })
       .then(() => res.redirect('/'))
